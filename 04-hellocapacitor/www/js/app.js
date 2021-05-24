@@ -1,5 +1,5 @@
 /* IMPORT */
-const { Camera, CameraResultType } = capacitorExports;
+const { Camera, CameraResultType, Storage } = capacitorExports;
 
 /* SELECTOR */
 const list = document.getElementById("list");
@@ -18,9 +18,8 @@ const getPhoto = async () => {
     resultType: CameraResultType.Uri,
   });
 
-  var imageUrl = image.webPath;
   modalElement.componentProps = {
-    imageUrl: imageUrl,
+    imageUrl: image.webPath,
   };
 
   presentModal();
@@ -128,10 +127,22 @@ async function savePhoto() {
     const header = createDomElt("ion-card-header", "", card);
     const title = createDomElt("ion-card-title", data.title, header);
     const content = createDomElt("ion-card-content", data.description, card);
+    setObject(data.imageUrl, data.title, data.description);
   });
   await modalElement.dismiss({
     imageUrl: modalElement.componentProps.imageUrl,
     title: document.getElementById("inputTitle").value,
     description: document.getElementById("inputDescription").value,
+  });
+}
+
+async function setObject(imageUrl, title, description) {
+  await Storage.set({
+    key: "article",
+    value: JSON.stringify({
+      imageUrl: imageUrl,
+      title: title,
+      description: description,
+    }),
   });
 }

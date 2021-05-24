@@ -1,0 +1,7 @@
+{
+	"appId": "dev.DemoCapacitor",
+	"appName": "DemoCapacitor",
+	"webDir": "www",
+	"bundledWebRuntime": true,
+	"npmclient": "npm"
+}
