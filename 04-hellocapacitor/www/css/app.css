@@ -1,0 +1,19 @@
+ion-header ion-title {
+  text-align: center;
+}
+
+ion-card {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+ion-item {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+ion-button {
+  width: 70%;
+  margin: 0 auto;
+  height: 50px;
+}

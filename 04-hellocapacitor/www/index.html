@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+    <link rel="stylesheet" href="./css/app.css">
+    <title>Blog DevFest App</title>
+</head>
+<body>
+    
+    <!-- ION APP -->
+    <ion-app>
+        <ion-header>
+            <ion-toolbar ios>
+                <ion-title >Blog DevFest Nantes</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list id="list"></ion-list>
+        </ion-content>
+        <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+            <ion-fab-button id="camera">
+                <ion-icon name="camera-outline"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+    </ion-app>
+
+
+    <!-- SCRIPT -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src= "https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <script type="module" src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"></script>
+    <script nomodule src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"></script>
+    <script src="./js/capacitor.js"></script>
+    <script src="./js/app.js"></script>
+    
+    
+    
+
+</body>
+</html>
