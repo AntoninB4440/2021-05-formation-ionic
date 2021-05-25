@@ -1,0 +1,28 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <h1>{{session.title}}</h1>
+    <img src="https://devfest2018.gdgnantes.com/{{session.image}}" alt="">
+    <p>{{session.description}}</p>
+    <ion-slides pager>
+        <ion-slide>
+            <ion-avatar slot="end">
+                <img src="./avatar.svg">
+              </ion-avatar>
+              <ion-label>Lorem ipsum</ion-label>
+        </ion-slide>
+        <ion-slide>
+            <div class="slide">
+              <img src="./slide-1.png"/>
+              <h2>Welcome</h2>
+              <p>The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of proper code use.</p>
+            </div>
+          </ion-slide>
+    </ion-slides>
+</ion-content>
