@@ -25,3 +25,29 @@
 #container a {
   text-decoration: none;
 }
+
+.logo {
+  display: block;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.dateConference {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+section {
+  margin-top: 5em;
+  margin-bottom: 2.5em;
+}
+
+section:not(.full-width),
+.full-width > header {
+  padding: 0 50px;
+}
+
+ion-button {
+  margin-bottom: 20px;
+}
