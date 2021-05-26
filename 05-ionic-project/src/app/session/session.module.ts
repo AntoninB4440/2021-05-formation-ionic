@@ -8,6 +8,7 @@ import { SessionPageRoutingModule } from './session-routing.module';
 
 import { SessionPage } from './session.page';
 import { SessionDetailComponent } from './session-detail/session-detail.component';
+import { NoteModalComponent } from './note-modal/note-modal.component';
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { SessionDetailComponent } from './session-detail/session-detail.componen
     IonicModule,
     SessionPageRoutingModule,
   ],
-  declarations: [SessionPage,SessionDetailComponent]
+  declarations: [SessionPage,SessionDetailComponent,NoteModalComponent]
 })
 export class SessionPageModule {}

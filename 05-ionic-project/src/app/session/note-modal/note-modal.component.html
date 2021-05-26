@@ -1,0 +1,15 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Notes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+  <ion-textarea autoGrow=true placeholder="Your notes ...." [(ngModel)]="note"></ion-textarea>
+  <section>
+    <ion-button expand="block" (click)="saveNotes()">Save notes</ion-button>
+  </section>
+
+</ion-content>

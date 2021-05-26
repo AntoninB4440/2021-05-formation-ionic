@@ -1,0 +1,21 @@
+section {
+  margin-top: 1em;
+  margin-bottom: 2.5em;
+}
+
+ion-textarea {
+  min-height: 200px;
+
+  .textarea-wrapper {
+    min-height: 200px;
+
+    textarea {
+      min-height: 200px;
+    }
+  }
+}
+
+section:not(.full-width),
+.full-width > header {
+  padding: 0 10px;
+}

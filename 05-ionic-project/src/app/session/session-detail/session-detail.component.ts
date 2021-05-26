@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Session } from 'src/app/models/session';
 import { Speaker } from 'src/app/models/speaker';
 import { SpeakerService } from 'src/app/speaker/speaker.service';
+import { NoteModalComponent } from '../note-modal/note-modal.component';
 import { SessionService } from '../session.service';
 
 @Component({
@@ -20,7 +22,8 @@ export class SessionDetailComponent implements OnInit {
     private router: Router,
     private activateRoute: ActivatedRoute,
     private sessionService: SessionService,
-    private speakerService: SpeakerService
+    private speakerService: SpeakerService,
+    private modalController: ModalController,
   ) { }
 
   ngOnInit() {
@@ -56,6 +59,14 @@ export class SessionDetailComponent implements OnInit {
         })
       })
     }
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: NoteModalComponent,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
   }
 
 }
