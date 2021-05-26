@@ -3,9 +3,22 @@
     <ion-buttons slot="start" (click)="goBack()">
       <ion-icon name="arrow-back-outline"></ion-icon> Back
     </ion-buttons>
-    <ion-title>Test coucoucoucouc</ion-title>
+    <ion-title>{{session?.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen class="ion-padding">
+    <ion-label>
+      <p>Description</p>
+    </ion-label>
+  <p>{{session?.description}}</p>
+  <ion-label *ngIf="session?.speakers">
+    <p>Speaker(s)</p>
+  </ion-label>
+  <ion-slides pager="true" *ngIf="session?.speakers">
+    <ion-slide *ngFor="let speaker of speakers">
+      <img src="https://devfest2018.gdgnantes.com/{{speaker.photoUrl}}" alt="Picture of {{speaker.name}}" >
+      <h1>{{speaker.name}}</h1>
+    </ion-slide>
+  </ion-slides>
   
 </ion-content>

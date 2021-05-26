@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Session } from 'src/app/models/session';
+import { Speaker } from 'src/app/models/speaker';
+import { SpeakerService } from 'src/app/speaker/speaker.service';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-session-detail',
@@ -8,12 +12,50 @@ import { Router } from '@angular/router';
 })
 export class SessionDetailComponent implements OnInit {
 
-  constructor(private route : Router) { }
+  sessionId: string;
+  session: Session;
+  speakers: Speaker[] = [];
 
-  ngOnInit() { }
+  constructor(
+    private router: Router,
+    private activateRoute: ActivatedRoute,
+    private sessionService: SessionService,
+    private speakerService: SpeakerService
+  ) { }
+
+  ngOnInit() {
+    this.sessionId = this.activateRoute.snapshot.paramMap.get("id");
+    this.getSession();
+   }
   
   goBack() {
-    this.route.navigate(['session'])
+    this.router.navigate(['session'])
+  }
+
+  getSession(): void {
+    this.sessionService.getSessions().subscribe((session: Session[]) => {
+      session.forEach(data => {
+        if (data.id === Number(this.sessionId)) {
+          this.session = data;
+          this.getSpeakers();
+        }
+      })
+    })
+  }
+
+  getSpeakers(): void{
+    if (this.session.speakers) {
+      this.session?.speakers.forEach(speakerId => {
+        this.speakerService.getSpeakers().subscribe((data: Speaker[]) => {
+          data.forEach(speaker => {
+            if (speaker.id == speakerId) {
+              this.speakers.push(speaker);
+              console.log(this.speakers);
+            }
+          })
+        })
+      })
+    }
   }
 
 }

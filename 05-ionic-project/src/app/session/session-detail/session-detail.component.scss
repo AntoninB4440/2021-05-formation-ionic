@@ -3,3 +3,23 @@ ion-icon {
   margin-right: 0.5rem;
   font-size: 1.5em;
 }
+
+ion-slides {
+  height: 40%;
+}
+
+.swiper-slide {
+  display: block;
+}
+
+.swiper-slide h2 {
+  margin-top: 2.8rem;
+}
+
+.swiper-slide img {
+  max-height: 50%;
+  max-width: 50%;
+  margin: 20px 0 20px;
+  pointer-events: none;
+  border-radius: 100%;
+}
