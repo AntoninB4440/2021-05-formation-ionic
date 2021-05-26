@@ -10,7 +10,7 @@ const routes: Routes = [
     component: SessionPage
   },
   {
-    path: '',
+    path: 'detail/:id',
     component: SessionDetailComponent
   }
 ];

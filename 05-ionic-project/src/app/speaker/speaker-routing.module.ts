@@ -10,7 +10,7 @@ const routes: Routes = [
     component: SpeakerPage
   },
   {
-    path: '/detail/:id',
+    path: 'detail/:id',
     component : SpeakerDetailComponent
   }
 ];
