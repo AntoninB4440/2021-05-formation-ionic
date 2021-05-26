@@ -64,7 +64,10 @@ export class SessionDetailComponent implements OnInit {
   async presentModal() {
     const modal = await this.modalController.create({
       component: NoteModalComponent,
-      cssClass: 'my-custom-class'
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'id': this.sessionId,
+      }
     });
     return await modal.present();
   }

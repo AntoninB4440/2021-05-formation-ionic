@@ -26,7 +26,7 @@ export class StorageService {
   }
 
   get(keyName : string) {
-    return this._storage?.get('name');
+    return this._storage?.get(keyName);
   }
 
 

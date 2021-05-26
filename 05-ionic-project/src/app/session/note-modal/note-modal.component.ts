@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { StorageService } from 'src/app/storage.service';
 
@@ -9,11 +9,14 @@ import { StorageService } from 'src/app/storage.service';
 })
 export class NoteModalComponent implements OnInit {
 
-  note: string = "";
+  note: string | null = "";
+  @Input() id: string ;
 
   constructor(private modalController : ModalController, private storageService : StorageService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getNotes();
+   }
   
   dismiss() {
     // using the injected ModalController this page
@@ -24,7 +27,11 @@ export class NoteModalComponent implements OnInit {
   }
 
   saveNotes() {
-    console.log(this.note);
+    this.storageService.set(this.id, this.note);
+  }
+
+  async getNotes() {
+    this.note = await this.storageService.get(this.id);
   }
 
 }
