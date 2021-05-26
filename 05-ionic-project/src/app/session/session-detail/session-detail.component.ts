@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-session-detail',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SessionDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route : Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+  
+  goBack() {
+    this.route.navigate(['session'])
+  }
 
 }
