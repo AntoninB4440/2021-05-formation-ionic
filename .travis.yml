@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "14"
 before_script:
-  - cd repertoire_projet
+  - cd 05-ionic-project
   - npm install
 script: npm run build
 deploy:
