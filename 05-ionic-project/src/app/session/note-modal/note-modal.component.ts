@@ -19,10 +19,10 @@ export class NoteModalComponent implements OnInit {
 
   constructor(private modalController : ModalController, private storageService : StorageService, public photoService : PhotoService) { }
 
-  ngOnInit() {
-    this.getNotes();
-    this.loadPhotoToGallery();
-   }
+  async ngOnInit() {
+    await this.getNotes();
+    await this.loadPhotoToGallery();
+  }
   
   dismiss() {
     // using the injected ModalController this page
@@ -44,8 +44,6 @@ export class NoteModalComponent implements OnInit {
   async addPhotoToGallery() {
     await this.photoService.addNewToGallery(this.id);
     await this.loadPhotoToGallery();
-    console.log(this.photos);
-    
   }
 
   async loadPhotoToGallery() {

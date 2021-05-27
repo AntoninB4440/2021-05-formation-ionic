@@ -15,8 +15,9 @@ export class StorageService {
 
   async init() {
     // If using, define drivers here: await this.storage.defineDriver(/*...*/);
-    const storage = await this.storage.create();
-    this._storage = storage;
+    if (!this._storage) {
+      this._storage = await this.storage.create();
+    }
   }
 
   // Create and expose methods that users of this service can
@@ -25,8 +26,13 @@ export class StorageService {
     this._storage?.set(key, value);
   }
 
-  get(keyName : string) {
-    return this._storage?.get(keyName);
+  async get(keyName: string) {
+    if (!this._storage) {
+      await this.init()
+      return this._storage?.get(keyName);
+    } else {
+      return this._storage?.get(keyName);
+    }
   }
 
 
