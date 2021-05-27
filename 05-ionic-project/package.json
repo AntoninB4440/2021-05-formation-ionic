@@ -6,10 +6,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build": "ng build --configuration production --base-href  https://antoninb4440.github.io/2021-05-formation-ionic/05-ionic-project"
   },
   "private": true,
   "dependencies": {
