@@ -6,11 +6,11 @@ before_script:
   - npm install
 script: npm run build
 deploy:
-local-dir: repertoire_projet/www
-provider: pages
-skip-cleanup: true
-github-token: $GITHUB_TOKEN
-on:
-branch: master
+  local-dir: 05-ionic-project/www
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: main
 notifications:
-email: false
+  email: false
