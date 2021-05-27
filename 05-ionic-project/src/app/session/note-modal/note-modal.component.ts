@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { StorageService } from 'src/app/storage.service';
+import { PhotoBis } from 'src/app/models/photo';
+import { PhotoService } from 'src/app/webService/photo.service';
+import { StorageService } from 'src/app/webService/storage.service';
+
 
 @Component({
   selector: 'app-note-modal',
@@ -10,12 +13,15 @@ import { StorageService } from 'src/app/storage.service';
 export class NoteModalComponent implements OnInit {
 
   note: string | null = "";
+  photos: PhotoBis[] = [];
+
   @Input() id: string ;
 
-  constructor(private modalController : ModalController, private storageService : StorageService) { }
+  constructor(private modalController : ModalController, private storageService : StorageService, public photoService : PhotoService) { }
 
   ngOnInit() {
     this.getNotes();
+    this.loadPhotoToGallery();
    }
   
   dismiss() {
@@ -28,10 +34,22 @@ export class NoteModalComponent implements OnInit {
 
   saveNotes() {
     this.storageService.set(this.id, this.note);
+    this.dismiss();
   }
 
   async getNotes() {
     this.note = await this.storageService.get(this.id);
+  }
+
+  async addPhotoToGallery() {
+    await this.photoService.addNewToGallery(this.id);
+    await this.loadPhotoToGallery();
+    console.log(this.photos);
+    
+  }
+
+  async loadPhotoToGallery() {
+    this.photos = await this.photoService.loadSaved(this.id);
   }
 
 }
